@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contest: false
+  name: MyString
+  date: 2009-03-28
+  contest_type: MyString
+  terrain_type: MyString
+  place: MyString
+  map: MyString
+  scale: MyString
+  length: 9.99
+  time: 1
+  position: 1
+  control_amount: 1
+  runner_amount: 1
+  winning_time: 1
+  priority: 1
+  feeling: 1
+
+two:
+  contest: false
+  name: MyString
+  date: 2009-03-28
+  contest_type: MyString
+  terrain_type: MyString
+  place: MyString
+  map: MyString
+  scale: MyString
+  length: 9.99
+  time: 1
+  position: 1
+  control_amount: 1
+  runner_amount: 1
+  winning_time: 1
+  priority: 1
+  feeling: 1
