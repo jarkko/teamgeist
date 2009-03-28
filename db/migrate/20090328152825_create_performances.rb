@@ -17,7 +17,7 @@ class CreatePerformances < ActiveRecord::Migration
       t.integer :winning_time
       t.integer :priority
       t.integer :feeling
-
+      t.references :user
       t.timestamps
     end
   end

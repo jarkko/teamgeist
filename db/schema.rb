@@ -9,7 +9,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090328134958) do
+ActiveRecord::Schema.define(:version => 20090328152825) do
+
+  create_table "performances", :force => true do |t|
+    t.boolean  "contest"
+    t.string   "name"
+    t.date     "date"
+    t.string   "contest_type"
+    t.string   "terrain_type"
+    t.string   "place"
+    t.string   "map"
+    t.string   "scale"
+    t.decimal  "length"
+    t.integer  "time"
+    t.integer  "position"
+    t.integer  "control_amount"
+    t.integer  "runner_amount"
+    t.integer  "winning_time"
+    t.integer  "priority"
+    t.integer  "feeling"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                              :null => false
