@@ -7,7 +7,12 @@
   <% @performances.each do |perf| %>
   <li>
     <%= link_to perf.name.blank? ? perf.date.to_s : perf.name, perf %>
+    <%= link_to "X", perf, :class => "destroy_performance" %>
   </li>
   <% end %>
 </ul>
 <% end %>
+
+<p>
+  <%= link_to "#{t(:'Add')} #{t(:'performances.new_performance')}", new_performance_path %>.
+</p>

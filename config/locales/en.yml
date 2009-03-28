@@ -3,6 +3,8 @@
 
 en:
   create: Create
+  Add: Add
   performances:
     no_performances: No performances
     your_first_one: your first one
+    new_performance: new performance

@@ -1,14 +1,23 @@
 class PerformancesController < ApplicationController
   before_filter :require_user
-  before_filter :fetch_user, :only => [:show, :update]
+  before_filter :fetch_user, :only => [:show, :update, :destroy]
   
   def index
     @performances = current_user.performances
   end
   
   def new
-    @performance = current_user.performances.create!
-    redirect_to @performance
+    @performance = current_user.performances.build
+  end
+  
+  def create
+    @performance = current_user.performances.create!(params[:performance])
+    
+    respond_to do |format|
+      format.js do
+        render :text => @performance.id
+      end
+    end
   end
   
   def show
@@ -20,6 +29,19 @@ class PerformancesController < ApplicationController
     respond_to do |format|
       format.js do
         render :text => ""
+      end
+    end
+  end
+  
+  def destroy
+    @performance.destroy
+    
+    respond_to do |format|
+      format.js do
+        render :text => ""
+      end
+      format.html do
+        redirect_to performances_url
       end
     end
   end
