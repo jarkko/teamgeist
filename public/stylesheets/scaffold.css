@@ -49,6 +49,7 @@ a:hover { color: #fff; background-color:#000; }
 
 #errorExplanation ul li {
   font-size: 12px;
+  margin-left: 2em;
   list-style: square;
 }
 
