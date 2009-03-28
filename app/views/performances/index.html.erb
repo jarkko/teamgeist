@@ -1,12 +1,12 @@
 <% if @performances.empty? %>
 <p>
-  <em>No performances. <%= link_to "Create", new_performance_path %> your first one.</em>
+  <em><%= I18n.t('performances.no_performances') %>. <%= link_to t(:'create'), new_performance_path %> <%= t(:'performances.your_first_one') %>.</em>
 </p>
 <% else %>
 <ul>
   <% @performances.each do |perf| %>
   <li>
-    <%= link_to perf.name, perf %>
+    <%= link_to perf.name.blank? ? perf.date.to_s : perf.name, perf %>
   </li>
   <% end %>
 </ul>

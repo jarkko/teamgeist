@@ -1,4 +1,8 @@
-<% form_for @performance do |form| %>
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'performances/show' %>
+<% end %>
+
+<% form_for @performance, :html => {:id => "edit_performance"} do |form| %>
   <ul>
     <li>
       <%= form.label :name %><br />
@@ -81,3 +85,7 @@
     </li>
   </ul>
 <% end %>
+
+<p>
+  <%= link_to "Done", performances_path %>
+</p>

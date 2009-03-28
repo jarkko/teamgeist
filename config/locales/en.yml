@@ -2,4 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  create: Create
+  performances:
+    no_performances: No performances
+    your_first_one: your first one
