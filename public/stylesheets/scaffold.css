@@ -53,6 +53,16 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+#flash {
+  background: #42E15A;
+  color: #225529;
+  padding: 1em;
+  margin: 1em 0;
+  border: 3px solid #225529;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
 ul {
   list-style: none;
   padding: 0;

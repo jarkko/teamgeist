@@ -19,7 +19,11 @@
     <%= link_to "Logout", user_session_path, :method => :delete %>
   <% end %>
 
-  <p style="color: green"><%= flash[:notice] %></p>
+  <% if flash[:notice] %>
+  <div id="flash">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
 
   <%= yield  %>
 
