@@ -1,0 +1,83 @@
+<% form_for @performance do |form| %>
+  <ul>
+    <li>
+      <%= form.label :name %><br />
+      <%= form.text_field :name %>
+    </li>
+    
+    <li>
+      <%= form.label :date %><br />
+      <%= form.date_select :date %>
+    </li>
+
+    <li>
+      <%= form.label :contest_type, "Contest type" %><br />
+      <%= form.text_field :contest_type %>
+    </li>
+    
+    <li>
+      <%= form.label :priority %><br />
+      <%= form.text_field :priority %>
+    </li>
+    
+    <li>
+      <%= form.label :terrain_type %><br />
+      <%= form.text_field :terrain_type %>
+    </li>
+    
+    <li>
+      <%= form.label :place %><br />
+      <%= form.text_field :place %>
+    </li>
+    
+    <li>
+      <%= form.label :map %><br />
+      <%= form.text_field :map %>
+    </li>
+
+    <li>
+      <%= form.label :scale, "Map scale" %><br />
+      <%= form.text_field :scale %>
+    </li>
+    
+    <li>
+      <%= form.label :length %><br />
+      <%= form.text_field :length %>
+    </li>
+
+    <li>
+      <%= form.label :time %><br />
+      <%= form.text_field :time %>
+    </li>
+    
+    <li>
+      <%= form.label :winning_time %><br />
+      <%= form.text_field :winning_time %>
+    </li>
+    
+    <li>
+      <%= form.label :position %><br />
+      <%= form.text_field :position %>
+    </li>
+
+    <li>
+      <%= form.label :feeling %><br />
+      <%= form.text_field :feeling %>
+    </li>
+
+    <li>
+      <%= form.label :control_amount, "Controls" %><br />
+      <%= form.text_field :control_amount %>
+    </li>
+    
+    <li>
+      <%= form.label :runner_amount, "Runners" %><br />
+      <%= form.text_field :runner_amount %>
+    </li>
+
+    <li>
+      <%= form.label :scale, "Map scale" %><br />
+      <%= form.text_field :scale %>
+    </li>
+  </ul>
+<% end %>

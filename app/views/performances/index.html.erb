@@ -1,0 +1,13 @@
+<% if @performances.empty? %>
+<p>
+  <em>No performances. <%= link_to "Create", new_performance_path %> your first one.</em>
+</p>
+<% else %>
+<ul>
+  <% @performances.each do |perf| %>
+  <li>
+    <%= link_to perf.name, perf %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
