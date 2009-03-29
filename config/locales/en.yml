@@ -2,6 +2,9 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  mistakes: Mistakes
+  mistake:
+    no_mistakes: No mistakes
   create: Create
   Add: Add
   performances:

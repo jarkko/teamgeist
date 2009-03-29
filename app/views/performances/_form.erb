@@ -137,3 +137,28 @@
 <p>
   <%= link_to "Done", performances_path %>
 </p>
+
+<div id="mistakes">
+  <h2>
+    <%= t(:mistakes) %>
+  </h2>
+  
+  <% if @performance.mistakes.blank? %>
+  <p>
+    <em><%= t(:'mistake.no_mistakes') %></em>
+  </p>
+  <% else %>
+  <ul>
+    
+  </ul>
+  <% end %>
+  
+  <% form_for Mistake.new, :url => performance_mistakes_path(@performance) do |form| %>
+    <p>
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+      <%= form.submit "Add mistake" %>
+    </p>
+  <% end %>
+</div>
+

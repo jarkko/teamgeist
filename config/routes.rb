@@ -1,5 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users, :performances
+  map.resources :users
+  
+  map.resources :performances do |perf|
+    perf.resources :mistakes
+  end
 
   # config/routes.rb
   map.resource :user_session

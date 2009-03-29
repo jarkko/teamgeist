@@ -19,6 +19,9 @@ PerformanceForm = Behavior.create({
       var perfId = response.responseText;
       this.element.action = this.element.action + '/' + perfId;
       this.element.down('div').insert($input({type: 'hidden', value: 'put', name: '_method'}));
+      
+      $('new_mistake').action = '/performances/' + perfId + '/mistakes';
+      
       this.updating = true;
     }
     
@@ -27,5 +30,6 @@ PerformanceForm = Behavior.create({
 });
 
 Event.addBehavior({
-  '#edit_performance' : PerformanceForm
+  '#edit_performance' : PerformanceForm,
+  '#new_mistake' : Remote.Form
 });
