@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090329120156) do
+ActiveRecord::Schema.define(:version => 20090329171416) do
+
+  create_table "mistake_types", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mistakes", :force => true do |t|
+    t.integer  "control"
+    t.integer  "amount"
+    t.text     "comments"
+    t.integer  "mistake_type_id"
+    t.integer  "performance_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "performances", :force => true do |t|
     t.boolean  "contest"
