@@ -17,14 +17,12 @@ PerformanceForm = Behavior.create({
   _onSuccess : function(response) {
     if (!this.updating) {
       var perfId = response.responseText;
-      //console.log("new perf id is " + perfId);
-      console.log("updating action of " + this.element.inspect());
       this.element.action = this.element.action + '/' + perfId;
       this.element.down('div').insert($input({type: 'hidden', value: 'put', name: '_method'}));
       this.updating = true;
     }
     
-    $('spinner').fade()
+    $('spinner').fade();
   }
 });
 
