@@ -1,78 +1,135 @@
 <% form_for @performance, :html => {:id => "edit_performance"} do |form| %>
   <ul>
     <li>
-      <%= form.label :name %><br />
-      <%= form.text_field :name %>
-    </li>
-    
-    <li>
-      <%= form.label :date %><br />
-      <%= form.calendar_date_select :date, :embedded => true %>
+
+      
+      <ul id="contest_details">
+        <li>
+          <%= form.label :name %><br />
+          <%= form.text_field :name %>  
+        </li>
+        
+        <li>
+          <ul id="contest_type">
+            <li>
+              <%= form.label :contest_type, "Contest type" %>
+                            
+              <%= form.label :contest_type_sprint, "#{form.radio_button :contest_type, "sprint"} Sprint" %>
+              
+              <%= form.label :contest_type_middle, "#{form.radio_button :contest_type, "middle"} Middle" %>
+
+              <%= form.label :contest_type_long, "#{form.radio_button :contest_type, "long"} Long" %>
+
+              <%= form.label :contest_type_ultra_long, "#{form.radio_button :contest_type, "ultra_long"} Ultra long" %>
+
+              <%= form.label :contest_type_relay, "#{form.radio_button :contest_type, "relay"} Relay" %>
+              
+              <%= form.label :night, "#{form.check_box :night} Night?" %>
+            </li>
+            <li>
+              <ul>
+                <li>
+                  <%= form.label :terrain_type %><br />
+                  <%= form.text_field :terrain_type %>
+                </li>
+                
+                <li id="priority">
+                  <%= form.label :priority %>
+                  
+                  <%= form.label :priority_3, "#{form.radio_button :priority, "3"} 3" %>
+                                                                                        
+                  <%= form.label :priority_2, "#{form.radio_button :priority, "2"} 2" %>
+                                                                                        
+                  <%= form.label :priority_1, "#{form.radio_button :priority, "1"} 1" %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div id="date_picker">
+        <%= form.calendar_date_select :date, :embedded => true %>
+      </div>
     </li>
 
-    <li>
-      <%= form.label :contest_type, "Contest type" %><br />
-      <%= form.text_field :contest_type %>
+    
+    <li id="place_and_map">
+      <ul>
+        <li>
+          <%= form.label :place %><br />
+          <%= form.text_field :place %>
+        </li>
+        
+        <li>
+          <%= form.label :map %><br />
+          <%= form.text_field :map %>
+        </li>
+        
+        <li>
+          <%= form.label :scale, "Map scale" %><br />
+          <%= form.text_field :scale %>
+        </li>
+      </ul>
     </li>
     
     <li>
-      <%= form.label :priority %><br />
-      <%= form.text_field :priority %>
-    </li>
-    
-    <li>
-      <%= form.label :terrain_type %><br />
-      <%= form.text_field :terrain_type %>
-    </li>
-    
-    <li>
-      <%= form.label :place %><br />
-      <%= form.text_field :place %>
-    </li>
-    
-    <li>
-      <%= form.label :map %><br />
-      <%= form.text_field :map %>
-    </li>
+      <ul id="performance_details">
+        <li>
+          <ul>
+            <li>
+              <%= form.label :length %><br />
+              <%= form.text_field :length %>
+            </li>
+            <li>
+              <%= form.label :control_amount, "Controls" %><br />
+              <%= form.text_field :control_amount %>
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <ul>
+            <li>
+              <%= form.label :time %><br />
+              <%= form.text_field :time %>
+            </li>
 
-    <li>
-      <%= form.label :scale, "Map scale" %><br />
-      <%= form.text_field :scale %>
-    </li>
-    
-    <li>
-      <%= form.label :length %><br />
-      <%= form.text_field :length %>
-    </li>
+            <li>
+              <%= form.label :winning_time %><br />
+              <%= form.text_field :winning_time %>
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <ul>
+            <li>
+              <%= form.label :position %><br />
+              <%= form.text_field :position %>
+            </li>
 
-    <li>
-      <%= form.label :time %><br />
-      <%= form.text_field :time %>
-    </li>
-    
-    <li>
-      <%= form.label :winning_time %><br />
-      <%= form.text_field :winning_time %>
-    </li>
-    
-    <li>
-      <%= form.label :position %><br />
-      <%= form.text_field :position %>
-    </li>
+            <li>
+              <%= form.label :runner_amount, "Runners" %><br />
+              <%= form.text_field :runner_amount %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div id="feeling">
+        <%= form.label :feeling %>
+        
+        <%= form.label :feeling_5, "#{form.radio_button(:feeling, "5")} 5" %>
+        
+        <%= form.label :feeling_4, "#{form.radio_button(:feeling, "4")} 4" %>
 
-    <li>
-      <%= form.label :feeling %><br />
-      <%= form.text_field :feeling %>
-    </li>
+        <%= form.label :feeling_3, "#{form.radio_button(:feeling, "3")} 3" %>
 
-    <li>
-      <%= form.label :control_amount, "Controls" %><br />
-      <%= form.text_field :control_amount %>
-    </li>
-    
-    <li>
-      <%= form.label :runner_amount, "Runners" %><br />
-      <%= form.text_field :runner_amount %>
+        <%= form.label :feeling_2, "#{form.radio_button(:feeling, "2")} 2" %>
+
+        <%= form.label :feeling_1, "#{form.radio_button(:feeling, "1")} 1" %>
+      </div>
     </li>
   </ul>
 <% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090328152825) do
+ActiveRecord::Schema.define(:version => 20090329120156) do
 
   create_table "performances", :force => true do |t|
     t.boolean  "contest"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20090328152825) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "night"
   end
 
   create_table "users", :force => true do |t|

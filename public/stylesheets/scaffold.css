@@ -73,3 +73,68 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+/* performance form */
+
+#edit_performance li {
+  overflow: hidden;
+}
+
+#edit_performance > ul > li {
+  width: 100%;
+}
+
+#performance_name {
+  width: 100%;
+}
+
+#contest_details,
+#performance_details,
+#contest_type > li,
+#place_and_map li,
+#performance_details ul li {
+  float: left;
+}
+
+#contest_details,
+#performance_details {
+  width: 60%;
+}
+
+#date_picker {
+  float:right;
+}
+
+#contest_type > li {
+  width: 49%;
+}
+
+#place_and_map ul {
+  width: 100%;
+}
+#place_and_map li {
+  width: 33%;
+}
+
+#feeling {
+  float: right;
+  width: 33%;
+}
+
+#feeling label,
+#priority label,
+#contest_type label {
+  display: block;
+  width: 100%;
+}
+
+label:hover {
+  background-color: yellow;
+}
+
+#performance_details {
+  width: 65%;
+}
+#performance_details ul li {
+  width: 50%;
+}

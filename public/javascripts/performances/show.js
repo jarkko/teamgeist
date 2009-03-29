@@ -7,10 +7,11 @@ PerformanceForm = Behavior.create({
     new Form.Observer(this.element, 1, this._onObserve.bind(this));
   },
   _onObserve : function(form, value) {
-    $('spinner').show();      
+    $('spinner').show();
+    $('spinner').appear({duration: 1});      
     new Ajax.Request(form.action, 
                      {parameters : form.serialize(),
-                      onSuccess : this._onSuccess.bind(this)
+                      onSuccess : this._onSuccess.bind(this),
                       });
   },
   _onSuccess : function(response) {
@@ -23,7 +24,7 @@ PerformanceForm = Behavior.create({
       this.updating = true;
     }
     
-    $('spinner').hide()
+    $('spinner').fade()
   }
 });
 
