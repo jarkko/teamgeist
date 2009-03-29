@@ -11,14 +11,13 @@
   <%= stylesheet_link_tag 'scaffold' %>
   
   <%= javascript_include_tag 'prototype', 'lowpro', 'effects', 'application', :cache => true %>
-  
+  <%= calendar_date_select_includes 'plain' %>
+  <!-- <%= javascript_include_tag 'calendar_date_select/locale/fi', :cache => true %>-->
   <%= yield :javascript %>
 </head>
 <body>
 
-  <div id="spinner" style="display: none;">
-    Spinning...
-  </div>
+  <img id="spinner" style="display: none;" src="/images/ajax-loader.gif" />
 
   <h1>Teamgeist</h1>
 
