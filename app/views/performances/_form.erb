@@ -143,15 +143,36 @@
     <%= t(:mistakes) %>
   </h2>
   
-  <% if @performance.mistakes.blank? %>
-  <p>
-    <em><%= t(:'mistake.no_mistakes') %></em>
-  </p>
-  <% else %>
-  <ul>
-    
-  </ul>
-  <% end %>
+  <table>
+    <thead id="mistakes_head"<%= " style=\"display:none;\"" if @performance.mistakes.blank? %>>
+      <tr>
+        <th>
+          <%= t(:control) %>
+        </th>
+        <th>
+          <%= t(:amount) %>
+        </th>
+        <th>
+          <%= t(:type) %>
+        </th>
+        <th>
+          <%= t(:comments) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="mistakes_body">
+  
+      <% if @performance.mistakes.blank? %>
+      <tr id="no_mistakes_row">
+        <p>
+          <em><%= t(:'mistake.no_mistakes') %></em>
+        </p>
+      </tr>
+      <% end %>
+      
+      <%= render :partial => @performance.mistakes %>      
+    </tbody>
+  </table>
   
   <% form_for Mistake.new, :url => performance_mistakes_path(@performance) do |form| %>
     <p>

@@ -29,7 +29,20 @@ PerformanceForm = Behavior.create({
   }
 });
 
+MistakeForm = Behavior.create(Remote.Form, {
+  initialize : function($super) {
+    $super({
+      onSuccess : this._onSuccess
+    })
+  },
+  _onSuccess : function(response) {
+    $('mistakes_head').show();
+    $('no_mistakes_row').hide();
+    $('mistake_description').clear();
+  }
+})
+
 Event.addBehavior({
   '#edit_performance' : PerformanceForm,
-  '#new_mistake' : Remote.Form
+  '#new_mistake' : MistakeForm
 });

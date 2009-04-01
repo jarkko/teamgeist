@@ -7,7 +7,7 @@ class PerformancesController < ApplicationController
   end
   
   def new
-    @performance = current_user.performances.build
+    @performance = current_user.performances.build(:date => Date.today)
   end
   
   def create

@@ -1,17 +1,71 @@
-<% if @performances.empty? %>
-<p>
-  <em><%= I18n.t('performances.no_performances') %>. <%= link_to t(:'create'), new_performance_path %> <%= t(:'performances.your_first_one') %>.</em>
-</p>
-<% else %>
-<ul>
-  <% @performances.each do |perf| %>
-  <li>
-    <%= link_to perf.name.blank? ? perf.date.to_s : perf.name, perf %>
-    <%= link_to "X", perf, :class => "destroy_performance" %>
-  </li>
-  <% end %>
-</ul>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Competition</th>
+      <th>Length</th>
+      <th>Time</th>
+      <th>Min/km</th>
+      <th>Position</th>
+      <th>Mistakes</th>
+      <th>Time without mistakes</th>
+      <th>Winning time</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% if @performances.empty? %>
+    <tr>
+      <td colspan="5">
+        <em><%= I18n.t('performances.no_performances') %>. <%= link_to t(:'create'), new_performance_path %> <%= t(:'performances.your_first_one') %>.</em>
+      </td>
+    </tr>
+    <% else %>
+    
+      <% @performances.each do |perf| %>
+      <tr>
+        <td>
+          <%= perf.date %>
+        </td>
+        <td>
+          <%= link_to perf.name.blank? ? perf.date.to_s : perf.name, perf %>          
+        </td>
+        <td>
+          <%= perf.length %>
+        </td>
+        <td>
+          <%= perf.formatted_time %>
+        </td>
+        <td>
+          <%= perf.min_per_km %>
+        </td>
+        
+        <td>
+          <%= perf.position %>
+        </td>
+        
+        <td>
+          <%= perf.total_mistakes %>
+        </td>
+        
+        <td>
+          <%= perf.time_without_mistakes %>
+        </td>
+        
+        <td>
+          <%= perf.formatted_winning_time %>
+        </td>
+        
+        <td>
+          <%= link_to "X", perf, :class => "destroy_link" %>
+        </td>
+        
+      </tr>
+      <% end %>
+    <% end %>
+    
+  </tbody>
+</table>
 
 <p>
   <%= link_to "#{t(:'Add')} #{t(:'performances.new_performance')}", new_performance_path %>.

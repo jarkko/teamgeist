@@ -1,0 +1,2 @@
+page.insert_html :bottom, "mistakes_body", :partial => @mistake
+page["mistake_#{@mistake.id}"].highlight

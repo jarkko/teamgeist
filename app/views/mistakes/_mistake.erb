@@ -1,0 +1,22 @@
+<tr id="mistake_<%= mistake.id %>">
+  <th>
+    <%= mistake.control %>
+  </th>
+  
+  <td>
+    <%= mistake.amount %>
+  </td>
+  
+  <td>
+    <%= mistake.mistake_type.name %>
+  </td>
+  
+  <td>
+    <%= mistake.comments %>
+  </td>
+  
+  <td>
+    <%= link_to "X", performance_mistake_path(@performance, mistake),
+                :class => "destroy_link"%>
+  </td>
+</tr>
