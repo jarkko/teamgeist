@@ -3,12 +3,14 @@ class Mistake < ActiveRecord::Base
   delegate :user, :to => :performance
   belongs_to :mistake_type
   belongs_to :mistake_place
+  
+  acts_as_taggable_on :tags
     
   attr_accessor :description
   
   before_validation :parse_description
   
-  validates_presence_of :control, :amount, :mistake_type_id, :mistake_place_id
+  validates_presence_of :control, :amount
   
   private
   

@@ -183,19 +183,8 @@
     </p>
 
     <p>
-      <%= form.label :mistake_place_id %>
-
-      <% MistakePlace.all.each do |pl| %>
-        <%= form.label :"mistake_place_id_#{pl.id}", "#{form.radio_button(:mistake_place_id, pl.id)} #{pl.description}" %>
-      <% end %>
-    </p>
-    
-    <p>
-      <%= form.label :mistake_type_id %>
-
-      <% MistakeType.all.each do |mt| %>
-        <%= form.label :"mistake_type_id_#{mt.id}", "#{form.radio_button(:mistake_type_id, mt.id)} #{mt.name}" %>
-      <% end %>
+      <%= form.label :tags %>
+      <%= form.text_field :tag_list %>
     </p>
     
     <p>
