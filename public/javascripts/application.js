@@ -12,7 +12,7 @@ DestroyLink = Behavior.create(Remote.Link, {
       method: 'delete',
       parameters : {authenticity_token : getAuthenticityToken()},
       onSuccess : function(response) {
-         Effect.Puff(this.element.up('li'), {duration: 0.3});
+         Effect.Puff(this.element.up('li, tr'), {duration: 0.8});
       }
     });
   }

@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090329171416) do
+ActiveRecord::Schema.define(:version => 20090920161105) do
+
+  create_table "mistake_places", :force => true do |t|
+    t.string   "description"
+    t.string   "abbreviation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "mistake_types", :force => true do |t|
     t.string   "name"
@@ -27,7 +34,10 @@ ActiveRecord::Schema.define(:version => 20090329171416) do
     t.integer  "performance_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mistake_place_id"
   end
+
+  add_index "mistakes", ["mistake_place_id"], :name => "index_mistakes_on_place"
 
   create_table "performances", :force => true do |t|
     t.boolean  "contest"
@@ -38,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20090329171416) do
     t.string   "place"
     t.string   "map"
     t.string   "scale"
-    t.decimal  "length"
+    t.decimal  "length",         :precision => 10, :scale => 4
     t.integer  "time"
     t.integer  "position"
     t.integer  "control_amount"

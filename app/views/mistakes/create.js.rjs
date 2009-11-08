@@ -1,2 +1,4 @@
 page.insert_html :bottom, "mistakes_body", :partial => @mistake
-page["mistake_#{@mistake.id}"].highlight
+page["mistake_#{@mistake.id}"].highlight(:duration => 3)
+page << "DestroyLink.attach($('mistake_#{@mistake.id}').down('.destroy_link'))"
+page[:new_mistake].reset

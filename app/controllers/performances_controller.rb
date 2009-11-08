@@ -3,7 +3,7 @@ class PerformancesController < ApplicationController
   before_filter :fetch_user, :only => [:show, :update, :destroy]
   
   def index
-    @performances = current_user.performances
+    @performances = current_user.performances.find(:all, :include => [:mistakes])
   end
   
   def new

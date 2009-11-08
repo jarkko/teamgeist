@@ -5,6 +5,8 @@ en:
   control: Control
   amount: Amount
   type: Type
+  Time: Time
+  winning_time: Winning Time
   comments: Comments
   mistakes: Mistakes
   mistake:

@@ -91,13 +91,13 @@
         <li>
           <ul>
             <li>
-              <%= form.label :time %><br />
-              <%= form.text_field :time %>
+              <%= form.label :formatted_time, t(:Time) %><br />
+              <%= form.text_field :formatted_time %>
             </li>
 
             <li>
-              <%= form.label :winning_time %><br />
-              <%= form.text_field :winning_time %>
+              <%= form.label :formatted_winning_time, t(:winning_time) %><br />
+              <%= form.text_field :formatted_winning_time %>
             </li>
           </ul>
         </li>
@@ -176,10 +176,37 @@
   
   <% form_for Mistake.new, :url => performance_mistakes_path(@performance) do |form| %>
     <p>
-      <%= form.label :description %>
-      <%= form.text_field :description %>
-      <%= form.submit "Add mistake" %>
+      <%= form.label :control %>
+      <%= form.text_field :control, :size => 3 %>
+      <%= form.label :amount, "Time in secs" %>
+      <%= form.text_field :amount, :size => 3 %>
     </p>
+
+    <p>
+      <%= form.label :mistake_place_id %>
+
+      <% MistakePlace.all.each do |pl| %>
+        <%= form.label :"mistake_place_id_#{pl.id}", "#{form.radio_button(:mistake_place_id, pl.id)} #{pl.description}" %>
+      <% end %>
+    </p>
+    
+    <p>
+      <%= form.label :mistake_type_id %>
+
+      <% MistakeType.all.each do |mt| %>
+        <%= form.label :"mistake_type_id_#{mt.id}", "#{form.radio_button(:mistake_type_id, mt.id)} #{mt.name}" %>
+      <% end %>
+    </p>
+    
+    <p>
+      <%= form.label :comments %>
+      <%= form.text_field :comments %>
+    </p>
+    
+    <p>
+      <%= submit_tag "Add Mistake" %>
+    </p>
+    
   <% end %>
 </div>
 

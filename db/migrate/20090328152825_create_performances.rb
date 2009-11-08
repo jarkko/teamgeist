@@ -9,7 +9,7 @@ class CreatePerformances < ActiveRecord::Migration
       t.string :place
       t.string :map
       t.string :scale
-      t.decimal :length
+      t.decimal :length, :precision => 4, :scale => 4
       t.integer :time
       t.integer :position
       t.integer :control_amount

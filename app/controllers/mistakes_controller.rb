@@ -5,6 +5,12 @@ class MistakesController < ApplicationController
     @mistake = @performance.mistakes.create!(params[:mistake])
   end
   
+  def destroy
+    @mistake = @performance.mistakes.find(params[:id])
+    @mistake.destroy
+    render :json => @mistake.to_json
+  end
+  
   private
   
   def fetch_performance
