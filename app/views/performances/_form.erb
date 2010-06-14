@@ -69,6 +69,7 @@
         <li>
           <%= form.label :scale, "Map scale" %><br />
           <%= form.text_field :scale %>
+          <div id="upload_button">Add map</div>
         </li>
       </ul>
     </li>
@@ -182,10 +183,10 @@
       <%= form.text_field :amount, :size => 3 %>
     </p>
 
-    <p>
+    <div>
       <%= form.label :tags %>
       <%= form.text_field :tag_list %>
-    </p>
+    </div>
     
     <p>
       <%= form.label :comments %>

@@ -3,7 +3,7 @@ class Performance < ActiveRecord::Base
   has_many    :mistakes
   
   def min_per_km
-    return nil if (length.blank? || time.blank?)
+    return nil if (length.blank? || time.blank? || length.to_i == 0)
     format_time(time / length)
   end
   

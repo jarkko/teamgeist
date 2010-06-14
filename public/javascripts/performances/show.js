@@ -2,6 +2,7 @@ PerformanceForm = Behavior.create({
   initialize : function() {
     this._startObserving();
     this.updating = false;
+    this.mapUpload = new AjaxUpload('upload_button', {action: "/maps"});
   },
   _startObserving : function() {
     new Form.Observer(this.element, 1, this._onObserve.bind(this));
@@ -17,10 +18,13 @@ PerformanceForm = Behavior.create({
   _onSuccess : function(response) {
     if (!this.updating) {
       var perfId = response.responseText;
+      var baseUrl = '/performances/' + perfId;
       this.element.action = this.element.action + '/' + perfId;
       this.element.down('div').insert($input({type: 'hidden', value: 'put', name: '_method'}));
       
-      $('new_mistake').action = '/performances/' + perfId + '/mistakes';
+      $('new_mistake').action = baseUrl + '/mistakes';
+      
+      this.mapUpload.setAction(baseUrl + '/maps')
       
       this.updating = true;
     }
