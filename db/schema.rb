@@ -34,10 +34,7 @@ ActiveRecord::Schema.define(:version => 20091108182819) do
     t.integer  "performance_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "mistake_place_id"
   end
-
-  add_index "mistakes", ["mistake_place_id"], :name => "index_mistakes_on_place"
 
   create_table "performances", :force => true do |t|
     t.boolean  "contest"
@@ -48,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20091108182819) do
     t.string   "place"
     t.string   "map"
     t.string   "scale"
-    t.decimal  "length",         :precision => 10, :scale => 4
+    t.decimal  "length",         :precision => 4, :scale => 4
     t.integer  "time"
     t.integer  "position"
     t.integer  "control_amount"
