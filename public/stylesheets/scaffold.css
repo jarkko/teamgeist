@@ -16,10 +16,26 @@ a { color: #000; }
 a:visited { color: #666; }
 a:hover { color: #fff; background-color:#000; }
 
+h1 {
+	margin-bottom: 40px;
+}
+
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
   display: table;
+}
+
+#userArea {
+	position: absolute;
+	top:0;
+	right:0;
+	margin: 1em;
+	padding: 1em;
+	border: 2px solid #333;
+	background-color: #ddd;
+	-moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 
 #errorExplanation {
@@ -58,7 +74,8 @@ a:hover { color: #fff; background-color:#000; }
   color: #225529;
   padding: 1em;
   margin: 1em 0;
-  border: 3px solid #225529;
+  margin-right: 180px;
+  border: 2px solid #225529;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
 }
@@ -72,6 +89,34 @@ a:hover { color: #fff; background-color:#000; }
 ul {
   list-style: none;
   padding: 0;
+}
+
+/* performance index (list) */
+
+#performance_list {
+	border:none;
+	border-spacing: 0;
+}
+
+#performance_list td, #performance_list th {
+	padding: 5px 10px;
+}
+
+#performance_list thead tr {
+	background-color: #444;
+	color: #eee;
+}
+
+#performance_list tr.white {
+	background-color: #fff;
+}
+
+#performance_list tr.gray {
+	background-color: #eee;
+}
+
+#performance_list td a, #performance_list td a:visited {
+	font-weight: bold;
 }
 
 /* performance form */
@@ -137,4 +182,24 @@ label:hover {
 }
 #performance_details ul li {
   width: 50%;
+}
+
+/* user_session & user form */
+
+#user_form {
+	width: 500px;
+}
+
+#user_form form {
+	padding: 1em;
+	border: 2px solid #333;
+	background-color: #ddd;
+	-moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+#user_form input[type="text"], #user_form input[type="password"] {
+	border: 1px solid black;
+	padding: 5px;
+
 }

@@ -1,4 +1,4 @@
-<table>
+<table id="performance_list">
   <thead>
     <tr>
       <th>Date</th>
@@ -10,6 +10,7 @@
       <th>Mistakes</th>
       <th>Time without mistakes</th>
       <th>Winning time</th>
+      <th></th>
     </tr>
   </thead>
   
@@ -23,7 +24,7 @@
     <% else %>
     
       <% @performances.each do |perf| %>
-      <tr>
+      <tr class="<%= cycle('white', 'gray') %>">
         <td>
           <%= perf.date %>
         </td>
