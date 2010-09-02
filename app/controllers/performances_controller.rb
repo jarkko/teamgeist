@@ -2,8 +2,14 @@ class PerformancesController < ApplicationController
   before_filter :require_user
   before_filter :fetch_user, :only => [:show, :update, :destroy]
   
+  helper_method :sort_column, :sort_direction
+  
   def index
-    @performances = current_user.performances.find(:all, :include => [:mistakes])
+    @performances = current_user.performances.find(
+      :all,
+      :include => [:mistakes],
+      :order => (sort_column + " " + sort_direction)
+    )
   end
   
   def new
@@ -52,5 +58,13 @@ class PerformancesController < ApplicationController
     @performance = current_user.performances.find(params[:id])
   rescue
     render :text => "Not found", :status => :not_found
+  end
+  
+  def sort_column
+    %w[date name length time position winning_time].include?(params[:sort]) ? params[:sort] : "date"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

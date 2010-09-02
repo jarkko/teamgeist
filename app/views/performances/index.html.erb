@@ -1,15 +1,15 @@
 <table id="performance_list">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Competition</th>
-      <th>Length</th>
-      <th>Time</th>
+      <th><%= sortable "date" %></th>
+      <th><%= sortable "name", "Competiton" %></th>
+      <th><%= sortable "length" %></th>
+      <th><%= sortable "time" %></th>
       <th>Min/km</th>
-      <th>Position</th>
+      <th><%= sortable "position" %></th>
       <th>Mistakes</th>
       <th>Time without mistakes</th>
-      <th>Winning time</th>
+      <th><%= sortable "winning_time", "Winning time"%></th>
       <th></th>
     </tr>
   </thead>

@@ -115,9 +115,34 @@ ul {
 	background-color: #eee;
 }
 
+#performance_list th a, #performance_list th a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+#performance_list th a:hover {
+	text-decoration: underline;
+}
+
 #performance_list td a, #performance_list td a:visited {
 	font-weight: bold;
 }
+
+#performance_list th .current {
+	text-decoration: underline;
+	padding-right: ;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+#performance_list th .asc {
+	/* background-image: url(...) */
+}
+
+#performance_list th .desc {
+	/* background-image: url(...) */
+}
+
 
 /* performance form */
 
