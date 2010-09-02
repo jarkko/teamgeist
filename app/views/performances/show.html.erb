@@ -2,4 +2,72 @@
   <%= javascript_include_tag 'ajaxupload', 'performances/show' %>
 <% end %>
 
-<%= render :partial => "form" %>
+<div id="show_performance">
+  <div class="header">
+	<div class="next">
+		<%= link_to("&laquo; previous", :id => @prev_perf.id ) unless @prev_perf.nil? %> | 
+		<%= link_to("next &raquo;", :id => @next_perf.id ) unless @next_perf.nil? %>
+	</div>
+	<div class="map">
+  		Google Map (with a marker on the place of the performance).
+  	</div>
+    <div class="map">
+  		Orienteering map (click for expanding)
+  	</div>
+  	<h2><%= @performance.name %></h2>
+	<ul class="header_details">
+	  <li><%= @performance.date %>, in <%= @performance.place %></li>
+	  <li><%= @performance.contest_type.titleize %> <%= if @performance.night then "| Night".to_s end %></li>
+	  <li>Priority: <b><%= @performance.priority %></b></li>
+	</ul>
+  </div>
+  <div class="content">
+	<div class="content_details">
+	  <p>
+	    <b>Map</b><br />
+	    <%= @performance.map %>, <%= @performance.scale %>
+	  </p>
+	  <p>
+	    <b>Course</b><br />
+	    <%= @performance.length %> km, <%= @performance.control_amount %> controls
+	  </p>
+	  <p>
+	    <b>Time</b><br />
+	    Total Time: <%= @performance.formatted_time %>, Winning Time: <%= @performance.formatted_winning_time %>
+	  </p>
+	  <p>
+	    <b>Run</b><br />
+	    Position: <%= @performance.position %>, Runners: <%= @performance.runner_amount %><br />
+	    Feeling: <%= @performance.feeling %>
+	  </p>
+	</div>
+	
+	<h2>Mistakes</h2>
+    <table id="performance_list" class="mistakes">
+	  <thead>
+	    <tr>
+	      <th>Control</th>
+	      <th>Amount</th>
+	      <th>Type</th>
+	      <th>Comment</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @performance.mistakes.each do |mistake| %>
+          <tr class="<%= cycle('white', 'gray') %>">
+	        <td><%= mistake.control %></td>
+	        <td><%= mistake.amount %></td>
+	        <td><%= mistake.tags %></td>
+	        <td><%= mistake.comments %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+  </div>
+
+
+  <div class="footer">
+  	<%= link_to "Edit", edit_performance_path %> | <%= link_to "Delete", performance_path, :confirm => "Are you sure?", :method => :delete %><br /><br />
+    <%= link_to "Back", performances_path %>
+  </div>
+</div>

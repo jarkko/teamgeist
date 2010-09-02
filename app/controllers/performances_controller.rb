@@ -27,6 +27,15 @@ class PerformancesController < ApplicationController
   end
   
   def show
+    
+    # next und previous...
+    @performances = current_user.performances.find(:all, :include => [:mistakes], :order => 'date DESC')
+    @next_perf = @performances[@performances.index(@performance) + 1] unless @performance == @performances.last
+    @prev_perf = @performances[@performances.index(@performance) - 1] unless @performance == @performances.first
+  end
+  
+  def edit
+    @performance = current_user.performances.find(params[:id], :include => [:mistakes])
   end
   
   def update
