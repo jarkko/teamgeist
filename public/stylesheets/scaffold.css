@@ -162,12 +162,11 @@ ul {
 
 #show_performance .map {
 	width: 48%;
-	height: 200px;
+	height: 400px;
 	float: right;
 	clear: right;
 	margin: 1em;
 	border: 1px solid #333;
-	background-color: #ddd;
 }
 
 #show_performance .content_details {

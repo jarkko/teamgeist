@@ -1,6 +1,4 @@
-<% content_for :javascript do %>
-  <%= javascript_include_tag 'ajaxupload', 'performances/show' %>
-<% end %>
+<%= javascript_include_tag 'googlemaps' %>
 
 <div id="show_performance">
   <div class="header">
@@ -8,15 +6,14 @@
 		<%= link_to("&laquo; previous", :id => @prev_perf.id ) unless @prev_perf.nil? %> | 
 		<%= link_to("next &raquo;", :id => @next_perf.id ) unless @next_perf.nil? %>
 	</div>
-	<div class="map">
-  		Google Map (with a marker on the place of the performance).
+	<div class="map" id="map_canvas">
   	</div>
     <div class="map">
   		Orienteering map (click for expanding)
   	</div>
   	<h2><%= @performance.name %></h2>
 	<ul class="header_details">
-	  <li><%= @performance.date %>, in <%= @performance.place %></li>
+	  <li><%= @performance.date %>, in <span id="place"><%= @performance.place %></span></li>
 	  <li><%= @performance.contest_type.titleize %> <%= if @performance.night then "| Night".to_s end %></li>
 	  <li>Priority: <b><%= @performance.priority %></b></li>
 	</ul>
@@ -63,11 +60,11 @@
 	    <% end %>
 	  </tbody>
 	</table>
+	<p><%= link_to "Edit", edit_performance_path %> | <%= link_to "Delete", performance_path, :confirm => "Are you sure?", :method => :delete %><br /><br />
+    <%= link_to "Back", performances_path %></p>
   </div>
 
 
   <div class="footer">
-  	<%= link_to "Edit", edit_performance_path %> | <%= link_to "Delete", performance_path, :confirm => "Are you sure?", :method => :delete %><br /><br />
-    <%= link_to "Back", performances_path %>
   </div>
 </div>
